@@ -6,7 +6,8 @@ defmodule Jototter.Note do
 
     timestamps()
 
-    many_to_many :tags, Jototter.Tag, join_through: "notes_tags"
+    belongs_to :user, Jototter.User
+    many_to_many :tags, Jototter.Tag, join_through: Jototter.NoteTag
   end
 
   @doc """

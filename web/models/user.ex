@@ -6,6 +6,9 @@ defmodule Jototter.User do
     field :last_name, :string
     field :email, :string
 
+    has_many :notes, Jototter.Note
+    has_many :tags, Jototter.Tag
+
     timestamps()
   end
 
