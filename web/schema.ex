@@ -8,5 +8,10 @@ defmodule Jototter.Schema do
         field :notes, list_of(:note) do 
             resolve &Resolvers.Note.list_notes/3
         end
+
+        field :user, :user do 
+            arg :id, non_null(:id)
+            resolve &Resolvers.User.find_user/3
+        end
     end
 end

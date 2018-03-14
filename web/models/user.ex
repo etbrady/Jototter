@@ -20,4 +20,5 @@ defmodule Jototter.User do
     |> cast(params, [:first_name, :last_name, :email])
     |> validate_required([:first_name, :last_name, :email])
   end
+
 end
