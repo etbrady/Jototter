@@ -5,6 +5,8 @@ defmodule Jototter.Note do
     field :text, :string
 
     timestamps()
+
+    many_to_many :tags, Jototter.Tag, join_through: "notes_tags"
   end
 
   @doc """
