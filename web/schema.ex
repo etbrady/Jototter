@@ -22,5 +22,11 @@ defmodule Jototter.Schema do
         field :tags, list_of(:tag) do 
             resolve &Resolvers.Tag.list_tags/3
         end
+
+        field :tag, :tag do 
+            arg :id, non_null(:id)
+            resolve &Resolvers.Tag.find_tag/3
+        end
+
     end
 end

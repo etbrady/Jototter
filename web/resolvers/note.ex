@@ -9,8 +9,8 @@ defmodule Jototter.Resolvers.Note do
         case Notes.find_note(id) do
             nil ->
                 {:error, "Note ID #{id} not found"}
-            user ->
-                {:ok, user}
+            note ->
+                {:ok, note}
         end
     end
 
