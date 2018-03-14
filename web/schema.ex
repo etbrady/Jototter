@@ -13,5 +13,9 @@ defmodule Jototter.Schema do
             arg :id, non_null(:id)
             resolve &Resolvers.User.find_user/3
         end
+
+        field :tags, list_of(:tag) do 
+            resolve &Resolvers.Tag.list_tags/3
+        end
     end
 end

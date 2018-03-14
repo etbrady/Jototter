@@ -1,13 +1,8 @@
 defmodule Jototter.Resolvers.Note do
-    alias Jototter.Repo 
-    alias Jototter.Note
-
-    def list_notes(_args, _info) do 
-        {:ok, Repo.all(Note)}
-    end
+    alias Jototter.{Note,Notes}
 
     def list_notes(_parent, _args, _resolution) do 
-        {:ok, Repo.all(Note)}
+        {:ok, Notes.list_notes()}
     end
 
 end
