@@ -5,7 +5,9 @@ defmodule Jototter.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", Jototter do
-    pipe_through :api
-  end
+  forward "/api", Absinthe.Plug,
+    schema: Jototter.Schema
+ 
+  forward "/graphiql", Absinthe.Plug.GraphiQL,
+    schema: Jototter.Schema
 end
