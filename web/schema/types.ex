@@ -15,11 +15,14 @@ defmodule Jototter.Schema.Types do
         field :id, :id
         field :text, :string
         field :user, :user, resolve: assoc(:user)
+        field :tags, list_of(:tag), resolve: assoc(:tags)
+ 
     end
 
     object :tag do 
         field :id, :id 
         field :label, :string
         field :user, :user, resolve: assoc(:user)
+        field :notes, list_of(:note), resolve: assoc(:notes)
     end
 end
