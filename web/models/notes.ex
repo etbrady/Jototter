@@ -7,4 +7,8 @@ defmodule Jototter.Notes do
         Repo.all(Note)
     end
 
+    def find_note(id) do 
+        Repo.get(Note, id)
+    end
+
 end

@@ -9,6 +9,11 @@ defmodule Jototter.Schema do
             resolve &Resolvers.Note.list_notes/3
         end
 
+        field :note, :note do 
+            arg :id, non_null(:id)
+            resolve &Resolvers.Note.find_note/3
+        end
+
         field :user, :user do 
             arg :id, non_null(:id)
             resolve &Resolvers.User.find_user/3
