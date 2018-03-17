@@ -1,8 +1,8 @@
 defmodule Jototter.Resolvers.Tag do
     alias Jototter.{Tag,Tags}
 
-    def list_tags(_parent, _args, _resolution) do 
-        {:ok, Tags.list_tags()}
+    def list_tags(_parent, args, _resolution) do 
+        {:ok, Tags.list_tags(args)}
     end
 
     def find_tag(_parent, %{id: id}, _resolution) do

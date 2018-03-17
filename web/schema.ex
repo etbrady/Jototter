@@ -20,6 +20,7 @@ defmodule Jototter.Schema do
         end
 
         field :tags, list_of(:tag) do 
+            arg :label, :string
             resolve &Resolvers.Tag.list_tags/3
         end
 
