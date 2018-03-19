@@ -29,8 +29,12 @@ defmodule Jototter.Tags do
         Repo.all(query)
     end
 
-    def find_tag(id) do 
-        Repo.get(Tag, id)
+    def find_tag(id, context) do 
+        query = 
+            Tag 
+            |> authenticated_user(nil, context)
+        
+        Repo.get(query, id)
     end
 
 end

@@ -6,8 +6,8 @@ defmodule Jototter.Resolvers.Tag do
         {:ok, Tags.list_tags(args, context)}
     end
 
-    def find_tag(_parent, %{id: id}, _context) do
-        case Tags.find_tag(id) do
+    def find_tag(_parent, %{id: id}, context) do
+        case Tags.find_tag(id, context) do
             nil ->
                 {:error, "tag ID #{id} not found"}
             tag ->
