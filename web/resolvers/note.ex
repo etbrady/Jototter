@@ -9,8 +9,8 @@ defmodule Jototter.Resolvers.Note do
         {:error, "Access Denied"}
     end
 
-    def find_note(_parent, %{id: id}, _context) do
-        case Notes.find_note(id) do
+    def find_note(_parent, %{id: id}, context) do
+        case Notes.find_note(id, context) do
             nil ->
                 {:error, "Note ID #{id} not found"}
             note ->

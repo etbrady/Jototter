@@ -30,8 +30,11 @@ defmodule Jototter.Notes do
         Repo.all(query)
     end
 
-    def find_note(id) do 
-        Repo.get(Note, id)
+    def find_note(id, context) do 
+        query = 
+            Note 
+            |> authenticated_user(nil, context)
+        Repo.get(query, id)
     end
 
 end
