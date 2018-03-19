@@ -9,7 +9,6 @@ defmodule Jototter.Notes do
         |> where([n], n.user_id == ^user.id)
     end 
     def context_user(query, _args, resolution) do
-       IO.inspect resolution
        query
     end 
 
