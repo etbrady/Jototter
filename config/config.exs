@@ -24,9 +24,8 @@ config :logger, :console,
 
 config :jototter, Jototter.Guardian,
       verify_module: Guardian.JWT,  # optional
-      issuer: "Jototter",
-      secret_key: "SWhCFKY4h7yny2t3vgEKHY0vAtBjfg7FcZSmqzESLhUwRjReGsVCP8dvWEwESreE",
-      serializer: Jototter.GuardianSerializer
+      issuer: "jototter",
+      secret_key: "SWhCFKY4h7yny2t3vgEKHY0vAtBjfg7FcZSmqzESLhUwRjReGsVCP8dvWEwESreE"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -26,6 +26,10 @@ defmodule Jototter.Schema.Types do
         field :notes, list_of(:note), resolve: assoc(:notes)
     end
 
+    object :session do
+        field :token, :string
+    end
+
     input_object :tag_input do 
         field :label, :string
     end
@@ -36,4 +40,5 @@ defmodule Jototter.Schema.Types do
         field :email, :string
         field :password, :string
     end
+    
 end

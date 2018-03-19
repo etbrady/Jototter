@@ -38,5 +38,11 @@ defmodule Jototter.Schema do
             arg :user, :user_input
             resolve &Resolvers.User.update_user/3
         end
+
+        field :login, type: :session do
+            arg :email, non_null(:string)
+            arg :password, non_null(:string)
+            resolve &Resolvers.User.login/3
+        end
     end
 end
