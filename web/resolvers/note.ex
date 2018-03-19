@@ -1,8 +1,8 @@
 defmodule Jototter.Resolvers.Note do
     alias Jototter.{Note,Notes}
 
-    def list_notes(_parent, _args, _resolution) do 
-        {:ok, Notes.list_notes()}
+    def list_notes(_parent, args, _resolution) do 
+        {:ok, Notes.list_notes(args)}
     end
 
     def find_note(_parent, %{id: id}, _resolution) do

@@ -6,6 +6,7 @@ defmodule Jototter.Schema do
 
     query do 
         field :notes, list_of(:note) do 
+            arg :tag, :tag_input
             resolve &Resolvers.Note.list_notes/3
         end
 

@@ -25,4 +25,8 @@ defmodule Jototter.Schema.Types do
         field :user, :user, resolve: assoc(:user)
         field :notes, list_of(:note), resolve: assoc(:notes)
     end
+
+    input_object :tag_input do 
+        field :label, :string
+    end
 end

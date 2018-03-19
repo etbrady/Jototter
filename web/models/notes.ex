@@ -3,7 +3,15 @@ defmodule Jototter.Notes do
 
     alias Jototter.{Note,Repo}
     
-    def list_notes do 
+    def list_notes(%{:tag => tag}) do 
+        from(n in Note,
+            join: t in assoc(n, :tags),
+            where: t.label == ^tag.label
+            )
+        |> Repo.all
+    end
+
+    def list_notes(_args) do 
         Repo.all(Note)
     end
 
