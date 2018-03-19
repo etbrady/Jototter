@@ -8,9 +8,6 @@ defmodule Jototter.Web.Context do
   def init(opts), do: opts
  
   def call(conn, _) do
-    IO.puts "Context plug"
-    IO.inspect Guardian.Plug.current_resource(conn)
-
     case Guardian.Plug.current_resource(conn) do
       nil -> conn
       user ->

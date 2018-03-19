@@ -14,13 +14,10 @@ defmodule Jototter.Guardian do
     def resource_from_claims(claims) do 
         user = claims["sub"]
         |> Users.find_user
-        IO.puts "resource from calims"
-        IO.inspect user
         {:ok, user}
     end
     
     def resource_from_claims(_claims) do
-        IO.puts "Error from calims"
         {:error, :reason_for_error}
     end
 end
