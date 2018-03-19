@@ -31,4 +31,12 @@ defmodule Jototter.Schema do
         end
 
     end
+
+    mutation do 
+        field :update_user, type: :user do
+            arg :id, non_null(:id)
+            arg :user, :user_input
+            resolve &Resolvers.User.update_user/3
+        end
+    end
 end

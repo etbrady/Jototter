@@ -10,4 +10,13 @@ defmodule Jototter.Resolvers.User do
                 {:ok, user}
         end
     end
+
+    def update_user(parent, %{id: id, user: user} = args, resolution) do 
+        case find_user(parent, args, resolution) do
+            {:ok, found_user} -> 
+                Users.update_user(found_user, user)
+            {:error, error} -> 
+                {:error, error}
+        end
+    end
 end

@@ -29,4 +29,11 @@ defmodule Jototter.Schema.Types do
     input_object :tag_input do 
         field :label, :string
     end
+
+    input_object :user_input do
+        field :first_name, :string
+        field :last_name, :string
+        field :email, :string
+        field :password, :string
+    end
 end
