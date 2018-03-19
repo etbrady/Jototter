@@ -1,8 +1,8 @@
 defmodule Jototter.Resolvers.Note do
     alias Jototter.{Note,Notes}
     
-    def list_notes(_parent, args, %{context: %{current_user: user}}) do 
-        {:ok, Notes.list_notes(args)}
+    def list_notes(_parent, args, %{context: %{current_user: user}} = resolution) do 
+        {:ok, Notes.list_notes(args, resolution)}
     end
 
     def list_notes(_parent, args, _resolution) do 
