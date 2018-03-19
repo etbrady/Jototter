@@ -1,13 +1,13 @@
 defmodule Jototter.Notes do
     import Ecto.Query
 
-    alias Jototter.{Note,Repo}
+    alias Jototter.{Note,Repo,Tag}
 
     defp tag(query, args)
-    defp tag(query, %{:tag => tag}) do 
+    defp tag(query, %{:tag => %Tag{:label => label}}) do 
         query 
         |> join(:inner, [n], t in assoc(n, :tags))
-        |> where([_, t], t.label == ^tag.label)
+        |> where([_, t], t.label == ^label)
     end
     defp tag(query, _args) do 
         query
