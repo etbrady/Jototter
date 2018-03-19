@@ -3,12 +3,12 @@ defmodule Jototter.Notes do
 
     alias Jototter.{Note,Repo,Tag}
 
-    def context_user(query, _args, resolution) 
-    def context_user(query, _args, %{context: %{current_user: user}}) do
+    defp authenticated_user(query, _args, context) 
+    defp authenticated_user(query, _args, %{context: %{authenticated_user: user}}) do
         query 
         |> where([n], n.user_id == ^user.id)
     end 
-    def context_user(query, _args, resolution) do
+    defp authenticated_user(query, _args, _context) do
        query
     end 
 
@@ -22,10 +22,10 @@ defmodule Jototter.Notes do
         query
     end
 
-    def list_notes(args, resolution) do 
+    def list_notes(args, context) do 
         query = 
             Note 
-            |> context_user(args, resolution)
+            |> authenticated_user(args, context)
             |> tag(args)
         Repo.all(query)
     end

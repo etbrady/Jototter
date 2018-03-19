@@ -11,7 +11,7 @@ defmodule Jototter.Web.Context do
     case Guardian.Plug.current_resource(conn) do
       nil -> conn
       user ->
-        put_private(conn, :absinthe, %{context: %{current_user: user}})
+        put_private(conn, :absinthe, %{context: %{authenticated_user: user}})
     end
   end
 end

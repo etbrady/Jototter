@@ -3,12 +3,12 @@ defmodule Jototter.Tags do
 
     alias Jototter.{Tag,Repo}
 
-    defp context_user(query, _args, resolution) 
-    defp context_user(query, _args, %{context: %{current_user: user}}) do
+    defp authenticated_user(query, _args, context) 
+    defp authenticated_user(query, _args, %{context: %{authenticated_user: user}}) do
         query 
         |> where([t], t.user_id == ^user.id)
     end 
-    defp context_user(query, _args, resolution) do
+    defp authenticated_user(query, _args, _context) do
        query
     end
 
@@ -21,10 +21,10 @@ defmodule Jototter.Tags do
         query 
     end
 
-    def list_tags(args, resolution) do 
+    def list_tags(args, context) do 
         query = 
             Tag 
-            |> context_user(args, resolution)
+            |> authenticated_user(args, context)
             |> label(args)
         Repo.all(query)
     end

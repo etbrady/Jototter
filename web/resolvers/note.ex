@@ -1,15 +1,15 @@
 defmodule Jototter.Resolvers.Note do
-    alias Jototter.{Note,Notes}
+    alias Jototter.Notes
     
-    def list_notes(_parent, args, %{context: %{current_user: user}} = resolution) do 
-        {:ok, Notes.list_notes(args, resolution)}
+    def list_notes(_parent, args, context) do 
+        {:ok, Notes.list_notes(args, context)}
     end
 
-    def list_notes(_parent, args, _resolution) do 
+    def list_notes(_parent, _args, _context) do 
         {:error, "Access Denied"}
     end
 
-    def find_note(_parent, %{id: id}, _resolution) do
+    def find_note(_parent, %{id: id}, _context) do
         case Notes.find_note(id) do
             nil ->
                 {:error, "Note ID #{id} not found"}
