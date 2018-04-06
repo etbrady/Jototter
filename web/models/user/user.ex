@@ -8,8 +8,8 @@ defmodule Jototter.User do
     field :password, :string, virtual: true
     field :password_hash, :string
 
-    has_many :notes, Jototter.Note
-    has_many :tags, Jototter.Tag
+    has_many :notes, Jototter.Notes.Note
+    has_many :tags, Jototter.Notes.Tag
 
     timestamps()
   end

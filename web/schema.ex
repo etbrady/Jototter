@@ -7,12 +7,12 @@ defmodule Jototter.Schema do
     query do 
         field :notes, list_of(:note) do 
             arg :tag, :tag_input
-            resolve &Resolvers.Note.list_notes/3
+            resolve &Resolvers.Content.list_notes/3
         end
 
         field :note, :note do 
             arg :id, non_null(:id)
-            resolve &Resolvers.Note.find_note/3
+            resolve &Resolvers.Content.find_note/3
         end
 
         field :user, :user do 
@@ -22,12 +22,12 @@ defmodule Jototter.Schema do
 
         field :tags, list_of(:tag) do 
             arg :label, :string
-            resolve &Resolvers.Tag.list_tags/3
+            resolve &Resolvers.Content.list_tags/3
         end
 
         field :tag, :tag do 
             arg :id, non_null(:id)
-            resolve &Resolvers.Tag.find_tag/3
+            resolve &Resolvers.Content.find_tag/3
         end
 
     end

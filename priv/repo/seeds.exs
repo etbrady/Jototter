@@ -11,9 +11,7 @@
 # and so on) as they will halt execution if something goes wrong.
 
 alias Jototter.User
-alias Jototter.Note
-alias Jototter.Tag
-alias Jototter.NoteTag
+alias Jototter.Content.{Note,NoteTag,Tag}
 
 Jototter.Repo.delete_all(Tag)
 Jototter.Repo.delete_all(Note)

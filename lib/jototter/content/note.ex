@@ -1,5 +1,6 @@
-defmodule Jototter.Note do
+defmodule Jototter.Content.Note do
   use Jototter.Web, :model
+  alias Jototter.Content.{NoteTag,Tag}
 
   schema "notes" do
     field :text, :string
@@ -7,7 +8,7 @@ defmodule Jototter.Note do
     timestamps()
 
     belongs_to :user, Jototter.User
-    many_to_many :tags, Jototter.Tag, join_through: Jototter.NoteTag
+    many_to_many :tags, Tag, join_through: NoteTag
   end
 
   @doc """

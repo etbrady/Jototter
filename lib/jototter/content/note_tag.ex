@@ -1,9 +1,10 @@
-defmodule Jototter.NoteTag do
+defmodule Jototter.Content.NoteTag do
   use Jototter.Web, :model
+  alias Jototter.Content.{Note,Tag}
 
   schema "note_tags" do
-    belongs_to :note, Jototter.Note, foreign_key: :note_id
-    belongs_to :tag, Jototter.Tag, foreign_key: :tag_id
+    belongs_to :note, Note, foreign_key: :note_id
+    belongs_to :tag, Tag, foreign_key: :tag_id
 
     timestamps()
   end
