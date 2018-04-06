@@ -1,7 +1,7 @@
 defmodule Jototter.NoteTest do
   use Jototter.ModelCase
 
-  alias Jototter.Note
+  alias Jototter.Content.Note
 
   @valid_attrs %{text: "some text"}
   @invalid_attrs %{}

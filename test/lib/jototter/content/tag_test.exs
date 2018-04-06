@@ -1,7 +1,7 @@
 defmodule Jototter.TagTest do
   use Jototter.ModelCase
 
-  alias Jototter.Tag
+  alias Jototter.Content.Tag
 
   @valid_attrs %{label: "some label"}
   @invalid_attrs %{}

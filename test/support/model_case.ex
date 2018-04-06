@@ -55,4 +55,12 @@ defmodule Jototter.ModelCase do
     |> Ecto.Changeset.traverse_errors(&Jototter.ErrorHelpers.translate_error/1)
     |> Enum.flat_map(fn {key, errors} -> for msg <- errors, do: {key, msg} end)
   end
+
+  def queries_equal(first_query, second_query, query_kind \\ :all ) do 
+    query_to_string(first_query, query_kind) == query_to_string(second_query, query_kind)
+  end
+
+  defp query_to_string(query, kind) do 
+        Ecto.Adapters.SQL.to_sql(kind, Jototter.Repo, query)
+  end
 end

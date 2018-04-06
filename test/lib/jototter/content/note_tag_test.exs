@@ -1,7 +1,7 @@
 defmodule Jototter.NoteTagTest do
   use Jototter.ModelCase
 
-  alias Jototter.NoteTag
+  alias Jototter.Content.NoteTag
 
   @valid_attrs %{}
 
