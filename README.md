@@ -1,19 +1,9 @@
 # Jototter
 
-To start your Phoenix app:
+A GraphQL API written in Elixir for a note-taking application.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Start Phoenix endpoint with `mix phoenix.server`
+Instead of storing notes in a nested/tree heirarchy, notes can have any number of tags associated with them. 
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+[Absinthe](https://github.com/absinthe-graphql/absinthe) is the toolkit used for working with GraphQL
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+Note: This is currently in the early stages of development
